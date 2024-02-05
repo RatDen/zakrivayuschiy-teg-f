@@ -159,10 +159,15 @@
   -webkit-margin-after: 50px;
           margin-block-end: 50px;
   border: 2px solid var(--accent-color);
-  font-family: 'Inter-Variable', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   line-height: 21px;
   background-color: var(--main-theme-color);
+}
+@supports (font-variation-settings: normal) {
+  .card {
+    font-family: 'Inter-Variable', sans-serif;
+  }
 }
 .card__header {
   width: 100%;
@@ -352,9 +357,8 @@
   padding: 15px 20px;
   background-color: var(--main-theme-color);
 }
-.button-save__icon-wrap {
+.button-save__icon {
   width: 21px;
-  aspect-ratio: 1;
 }
 .button-save__text {
   font-family: 'Press Start 2P', sans-serif;
@@ -432,9 +436,8 @@
           align-items: center;
   gap: 20px;
 }
-.modal__icon-wrap {
+.modal__icon {
   width: 39px;
-  aspect-ratio: 1;
 }
 .modal__text {
   max-width: 234px;

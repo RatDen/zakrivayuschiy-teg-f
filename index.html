@@ -256,20 +256,16 @@
         </div>
       </article>
       <button class="button-save" onclick="modalSave.showModal()" aria-controls="modalSave">
-        <div class="button-save__icon-wrap">
-          <svg viewBox="0 0 40 40">
-            <use class="button-save__icon" href="svg/floppy.svg#floppy">
-          </svg>
-        </div>
+        <svg class="button-save__icon" viewBox="0 0 40 40">
+          <use href="svg/floppy.svg#floppy"/>
+        </svg>
         <span class="button-save__text">Сохранить на память</span>
       </button>
       <dialog class="modal" id="modalSave">
         <div class="modal__content-wrap">
-          <div class="modal__icon-wrap">
-            <svg viewBox="0 0 40 40">
-              <use class="modal__icon" href="svg/floppy.svg#floppy">
-            </svg>
-          </div>
+          <svg class="modal__icon" viewBox="0 0 40 40">
+            <use href="svg/floppy.svg#floppy"/>
+          </svg>
           <p class="modal__text">Вставьте дискету, чтобы продолжить</p>
         </div>
         <button class="modal__button" onclick="modalSave.close()" aria-controls="modalSave">ОК</button>

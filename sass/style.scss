@@ -127,10 +127,16 @@
   width: 100%;
   margin-block-end: 50px;
   border: 2px solid var(--accent-color);
-  font-family: 'Inter-Variable', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   line-height: 21px;
   background-color: var(--main-theme-color);
+
+  @supports (font-variation-settings: normal) {
+    & {
+      font-family: 'Inter-Variable', sans-serif;
+    }
+  }
 
   &__header {
     width: 100%;
@@ -309,9 +315,8 @@
   padding: 15px 20px;
   background-color: var(--main-theme-color);
 
-  &__icon-wrap {
+  &__icon {
     width: 21px;
-    aspect-ratio: 1;
   }
 
   &__text {
@@ -373,9 +378,8 @@
     gap: 20px;
   }
 
-  &__icon-wrap {
+  &__icon {
     width: 39px;
-    aspect-ratio: 1;
   }
 
   &__text {

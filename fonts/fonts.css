@@ -9,6 +9,26 @@
 
 @font-face {
     font-family: 'Inter-Variable';
-    src: url('Inter-Variable.woff2') format('woff2');
+    src: url('Inter-Variable.woff2') format('woff2 supports variations'),
+    url('Inter-Variable.woff2') format('woff2-variations');
     font-display: swap;
+    font-weight: 400 785;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: 
+    local('Inter-Regular'),
+    url('Inter.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: 
+    local('Inter-Bold'),
+    url('Inter-Variable.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 700;
 }
