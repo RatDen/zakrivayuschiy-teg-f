@@ -1,0 +1,393 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--accent-color);
+  background-image: var(--main-bg);
+  background-attachment: fixed;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(375px, 100%, 700px);
+}
+
+.button__text {
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(375px, 100%, 700px);
+  margin: 100px 0;
+  border: 2px solid currentColor;
+  font-family: 'Press Start 2P', sans-serif;
+  background-color: var(--main-theme-color);
+
+  &__logo {
+    margin-block-start: 136px;
+    margin-block-end: 20px;
+    font-size: clamp(3.0625rem, calc(1.9087rem + 4.9231vw), 4.0625rem);
+    line-height: clamp(3.0625rem, calc(1.9087rem + 4.9231vw), 4.0625rem);
+  }
+
+  &__name {
+    margin-block-end: 25px;
+    font-size: clamp(0.875rem, calc(0.226rem + 2.7692vw), 1.4375rem);
+    line-height: clamp(0.875rem, calc(0.226rem + 2.7692vw), 1.4375rem);
+    text-transform: uppercase;
+  }
+
+  &__theme-menu {
+    margin-block-end: 25px;
+  }
+}
+
+.theme-menu {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  &__item {
+    margin-inline-start: 18px;
+  }
+
+  &__button {
+    position: relative;
+    border: none;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+    background: none;
+    transition: opacity var(--animation-time);
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-color);
+      transition: width var(--animation-time);
+    }
+
+    &:focus-visible {
+      opacity: 0.6;
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      pointer-events: none;
+      &::before {
+        content: '▶';
+        position: absolute;
+        margin-inline-start: -4px;
+        animation: 0.5s ease-in-out infinite alternate arrow;
+        translate: -100% 0;
+      }
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-block-end: 50px;
+  border: 2px solid var(--accent-color);
+  font-family: 'Inter-Variable', sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+  background-color: var(--main-theme-color);
+
+  &__header {
+    width: 100%;
+    border-block-end: inherit;
+    padding: 4px 10px;
+    font-weight: 785;
+    letter-spacing: -1.7px;
+  }
+
+  &__image {
+    height: 100%;
+
+    &-wrap {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      overflow: hidden;
+      aspect-ratio: 1;
+    }
+
+    &-label {
+      position: absolute;
+      inset: 25px 25px auto auto;
+      z-index: 1;
+      opacity: 50%;
+      font-family: 'Press Start 2P', sans-serif;
+      font-size: 14px;
+      line-height: 14px;
+      text-shadow: -1px 0 var(--main-theme-color), 0 1px var(--main-theme-color),
+        1px 0 var(--main-theme-color), 0 -1px var(--main-theme-color);
+      mix-blend-mode: hard-light;
+
+      @supports (text-stroke: 0.5px var(--main-theme-color)) or
+        (-webkit-text-stroke: 0.5px var(--main-theme-color)) {
+        & {
+          text-shadow: none;
+          -webkit-text-stroke: 0.5px var(--main-theme-color);
+          text-stroke: 0.5px var(--main-theme-color);
+        }
+      }
+    }
+  }
+
+  &__text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    margin: 27px 26px;
+    font-weight: 465;
+  }
+
+  &__buttons-wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    align-self: flex-end;
+    margin: 0 25px 25px;
+  }
+
+  &__like-button {
+    position: relative;
+    width: 130px;
+    height: 38px;
+    border: 2px solid var(--accent-color);
+    overflow: hidden;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 14px;
+    line-height: 12.6px;
+    background-color: var(--main-theme-color);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: var(--accent-color);
+      transition: translate 0.5s ease-in-out 0s;
+      translate: -100%;
+    }
+
+    &:hover {
+      &::before {
+        translate: 0;
+      }
+    }
+
+    &:focus-visible {
+      box-shadow: 2px 2px var(--accent-color);
+      transition: box-shadow var(--animation-time);
+    }
+  }
+
+  &__icon-button {
+    height: 38px;
+    border: 2px solid transparent;
+    background-color: var(--main-theme-color);
+
+    &:focus-visible {
+      border-color: var(--accent-color);
+      transition: border-color var(--animation-time);
+    }
+
+    &:hover {
+      .core {
+        fill: var(--accent-color);
+        transition: fill var(--animation-time);
+      }
+
+      .main-body {
+        fill: var(--accent-color);
+        transition: fill var(--animation-time) 0.05s;
+      }
+    }
+
+    &:active {
+      .core {
+        fill: var(--heart-color);
+        transition: fill var(--animation-time);
+      }
+
+      .main-body {
+        fill: var(--heart-color);
+        transition: fill var(--animation-time) 0.05s;
+      }
+    }
+  }
+}
+
+.core,
+.main-body,
+.sparks {
+  fill: transparent;
+}
+
+.core {
+  transition: fill var(--animation-time) 0.03s;
+}
+
+.main-body {
+  transition: fill var(--animation-time);
+}
+
+.contour {
+  fill: var(--accent-color);
+  transition: fill linear 0.1s;
+}
+
+.like-icon.is-liked {
+  animation: 1 ease-in var(--animation-time) 0.1s backwards beat;
+
+  .core,
+  .main-body {
+    fill: var(--heart-color);
+  }
+
+  .contour {
+    fill: var(--heart-color);
+    transition: fill var(--animation-time) 0.06s;
+  }
+
+  .sparks {
+    animation: 2 ease-in alternate var(--animation-time) 0.3s both sparks;
+  }
+}
+
+.button-save {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-block-end: 105px;
+  border: 2px solid var(--accent-color);
+  padding: 15px 20px;
+  background-color: var(--main-theme-color);
+
+  &__icon-wrap {
+    width: 21px;
+    aspect-ratio: 1;
+  }
+
+  &__text {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 14px;
+    line-height: 12.6px;
+  }
+}
+
+.card__image-2 {
+  filter: grayscale(0.8);
+}
+
+.card__image-3 {
+  filter: saturate(3);
+}
+
+.card__image-4 {
+  filter: hue-rotate(30deg);
+}
+
+.card__image-5 {
+  filter: invert(0.8);
+}
+
+.card__image-6 {
+  filter: sepia(0.9);
+}
+
+.card__image-7 {
+  filter: blur(7px);
+}
+
+.card__image-8 {
+  filter: invert(0.8) hue-rotate(90deg);
+}
+
+.modal {
+  padding: 30px;
+  color: var(--accent-color);
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  background-color: var(--main-theme-color);
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  &::backdrop {
+    backdrop-filter: brightness(0.3);
+  }
+
+  &__content-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__icon-wrap {
+    width: 39px;
+    aspect-ratio: 1;
+  }
+
+  &__text {
+    max-width: 234px;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    width: 100%;
+    border: 2px solid var(--accent-color);
+    padding: 7px 0;
+    font: inherit;
+    background-color: transparent;
+  }
+}

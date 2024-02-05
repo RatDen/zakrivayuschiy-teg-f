@@ -21,7 +21,8 @@ h6,
 p,
 ul,
 ol,
-li {
+li,
+button {
   margin: 0;
   padding: 0;
 }
@@ -37,6 +38,10 @@ input {
   font-size: inherit;
 }
 
+button:focus {
+  outline: none;
+}
+
 ul,
 ol {
   list-style: none;
@@ -44,10 +49,10 @@ ol {
 
 .visually-hidden {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
 }
