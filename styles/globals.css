@@ -38,6 +38,7 @@ input {
   font-size: inherit;
 }
 
+a:focus,
 button:focus {
   outline: none;
 }
