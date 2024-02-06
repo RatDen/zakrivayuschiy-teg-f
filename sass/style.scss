@@ -239,6 +239,8 @@
   }
 
   &__icon-button {
+    display: flex;
+    align-items: center;
     height: 38px;
     border: 2px solid transparent;
     background-color: var(--main-theme-color);
@@ -331,5 +333,35 @@
     padding: 7px 0;
     font: inherit;
     background-color: transparent;
+  }
+}
+
+@media (width <= 376px) {
+  .header__logo {
+    margin-block-start: 120px;
+  }
+
+  .card__image-label {
+    inset: 25px 12px auto auto;
+  }
+
+  .button-save {
+    flex-direction: column;
+  }
+
+  .button-save__icon {
+    width: 30px;
+  }
+
+  .modal {
+    padding: 30px 40px;
+
+    &[open] {
+      gap: 30px;
+    }
+
+    &__icon {
+      width: 95px;
+    }
   }
 }
