@@ -82,9 +82,14 @@
   animation: 1 ease-in var(--animation-time) 0.1s alternate beat;
 }
 
-.like-icon.is-liked .core,
+.like-icon.is-liked .core {
+  fill: var(--heart-color);
+  transition: fill linear var(--animation-time);
+}
+
 .like-icon.is-liked .main-body {
   fill: var(--heart-color);
+  transition: fill linear var(--animation-time) 0.05s;
 }
 
 .like-icon.is-liked .contour {

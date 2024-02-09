@@ -24,6 +24,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-weight: 400;
 }
 
 .content {
@@ -38,9 +39,10 @@
   border: 2px solid var(--accent-color);
   overflow: hidden;
   background-color: var(--main-theme-color);
+  color: var(--button-text-color);
+  transition: box-shadow var(--animation-time);
 
   &__text {
-    color: var(--button-text-color);
     font-family: 'Press Start 2P', sans-serif;
     font-size: 14px;
     line-height: 12.6px;
@@ -67,7 +69,6 @@
 
   &:focus-visible {
     box-shadow: 2px 2px var(--accent-color);
-    transition: box-shadow var(--animation-time);
   }
 }
 
@@ -176,7 +177,7 @@
     border-block-end: inherit;
     padding: 4px 10px;
     font: inherit;
-    font-weight: 785;
+    font-variation-settings: 'wght' var(--font-weight-bold);
   }
 
   &__image {
@@ -222,7 +223,7 @@
     gap: 27px;
     margin: 27px 26px;
     font: inherit;
-    font-weight: 465;
+    font-variation-settings: 'wght' var(--font-weight-normal);
   }
 
   &__buttons-wrap {
@@ -244,10 +245,10 @@
     height: 38px;
     border: 2px solid transparent;
     background-color: var(--main-theme-color);
+    transition: border-color var(--animation-time);
 
     &:focus-visible {
       border-color: var(--accent-color);
-      transition: border-color var(--animation-time);
     }
   }
 }
@@ -329,10 +330,7 @@
 
   &__button {
     width: 100%;
-    border: 2px solid var(--accent-color);
-    padding: 7px 0;
-    font: inherit;
-    background-color: transparent;
+    padding: 10px 0;
   }
 }
 
