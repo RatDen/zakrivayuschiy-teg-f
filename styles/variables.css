@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-  --main-bg: repeating-linear-gradient(var(--main-theme-color), transparent 4px),
-    repeating-linear-gradient(90deg, var(--main-theme-color), transparent 4px),
+  --main-bg: repeating-linear-gradient(var(--main-theme-color) 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(90deg, var(--main-theme-color) 0 2px, transparent 2px 4px),
     linear-gradient(180deg, #007f0c 0%, #004306 100%);
   --main-theme-color: #000;
   --accent-color: #00cc14;
